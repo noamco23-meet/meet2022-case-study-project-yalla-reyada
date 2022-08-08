@@ -20,6 +20,9 @@ firebase = pyrebase.initialize_app(config)
 auth = firebase.auth()
 db = firebase.database()
 
+SEX = ['Male', 'Female']
+TRAINING_TYPES = ['Bodybuilding', 'Fitness', 'Yoga', 'Job Training', 'Other']
+
 @app.route('/', methods=['GET', 'POST'])
 def start():
     return render_template('index.html')
@@ -31,39 +34,44 @@ def select_signup():
 
 @app.route('/signup_trainer', methods=['GET', 'POST'])
 def signup_trainer():
+
     if request.method == 'POST':
+
         email = request.form['email']
         password = request.form['password']
-        name = request.form['full_name']
+        name = request.form['name']
         phone_number = request.form['phone_number']
-        sex = request.form['sex']
+        sex = request.form.get('sex')
         city = request.form['city']
-        target = request.form['target']
-        training_type = request.form['training_type']
+        target = request.form['target'] 
+        training_type = request.form.get('training_type')
         experience = request.form['experience']
     
 
         try:
             login_session['user'] = auth.create_user_with_email_and_password(email, password)
             user = {
-                "email": email, "password": password, "full_name": name, "phone_number": phone_number,
+                "email": email, "password": password, "name": name, "phone_number": phone_number,
                 "sex": sex, "city": city, "target": target, "training_type": training_type,
                 "experience": experience
                 }
-            db.child("Users").child(login_session['user']['localId']).set(user)
+            db.child("Users").child("Trainers").child(login_session['user']['localId']).set(user)
             return redirect(url_for('for_you_trainer'))
         except:
            error = "Authentication failed"
            print(error)
-    return render_template('signup_trainer.html')
+
+    else:
+        return render_template('signup_trainer.html', SEX=SEX, TRAINING_TYPES=TRAINING_TYPES)
 
 @app.route('/signup_trainee', methods=['GET', 'POST'])
 def signup_trainee():
 
     if request.method == 'POST':
+
         email = request.form['email']
         password = request.form['password']
-        name = request.form['full_name']
+        name = request.form['name']
         phone_number = request.form['phone_number']
         sex = request.form['sex']
         city = request.form['city']
@@ -75,12 +83,12 @@ def signup_trainee():
         try:
             login_session['user'] = auth.create_user_with_email_and_password(email, password)
             user = {
-                "email": email, "password": password, "full_name": name, "phone_number": phone_number,
+                "email": email, "password": password, "name": name, "phone_number": phone_number,
                 "sex": sex, "city": city, "target": target, "training_type": training_type,
                 "experience": experience
                 }
 
-            db.child("Users").child(login_session['user']['localId']).set(user)
+            db.child("Users").child("Trainees").child(login_session['user']['localId']).set(user)
             return redirect(url_for('for_you_trainee'))
         except:
            error = "Authentication failed"
