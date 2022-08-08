@@ -13,13 +13,8 @@ config = {
   "messagingSenderId": "395694763700",
   "appId": "1:395694763700:web:5219bacf7b4b0fe5adf1e1",
   "measurementId": "G-J6PGT8PB2D",
-<<<<<<< HEAD
-  "databaseURL":"https://case-study-yalla-reyada-default-rtdb.europe-west1.firebasedatabase.app"}
+  "databaseURL":"https://case-study-yalla-reyada-default-rtdb.europe-west1.firebasedatabase.app/"}
 
-=======
-  "databaseURL":"https://case-study-yalla-reyada-default-rtdb.europe-west1.firebasedatabase.app/"
-}
->>>>>>> aeff708df56db4fcf9e0519856a4992a277cdd28
 
 firebase = pyrebase.initialize_app(config)
 auth = firebase.auth()
