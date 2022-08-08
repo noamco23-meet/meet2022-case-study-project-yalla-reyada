@@ -39,10 +39,12 @@ def signup_trainee():
     
 @app.route('/for_you_trainer', methods=['GET', 'POST'])
 def for_you_trainer():
+    login_session['user'] = auth.create_user_with_email_and_password(email, password)
     return render_template('for_you_trainer.html')
     
 @app.route('/for_you_trainee', methods=['GET', 'POST'])
 def for_you_trainee():
+    login_session['user'] = auth.create_user_with_email_and_password(email, password)
     return render_template('for_you_trainee.html')
 
 
