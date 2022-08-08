@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="../static/css/style.css">
+    <link rel="stylesheet" href="../static/css/signup.css">
     <title></title>
 </head>
 <body>
@@ -57,6 +57,21 @@
                     <option value="{{training_option}}" class="select_option">{{training_option}}</option>
                     {% endfor %}
                 </select>
+            </div>
+            <div class="txt_field">
+                <input type="text" name="education" required>
+               <span></span>
+                <label>Education</label>
+            </div>
+            <div class="txt_field">
+                <input type="text" name="city" required>
+               <span></span>
+                <label>City</label>
+            </div>
+            <div class="txt_field">
+                <input type="text" name="country" required>
+               <span></span>
+                <label>Country</label>
             </div>
             <input type="submit" value="Sign up!">
         </form>
