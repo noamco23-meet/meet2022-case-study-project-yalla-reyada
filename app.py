@@ -31,25 +31,25 @@ def select_signup():
 
 @app.route('/signup_trainer', methods=['GET', 'POST'])
 def signup_trainer():
-    error  =""
     if request.method == 'POST':
         email = request.form['email']
         password = request.form['password']
-        full_name = request.form['full_name']
-        phonenumber = request.form['phonenumber']
+        name = request.form['full_name']
+        phone_number = request.form['phone_number']
         sex = request.form['sex']
         city = request.form['city']
-        specialty_in_training = request.form['specialty_in_training']
-        specialty_in_nutrition = request.form['specialty_in_nutrition']
-        expertise = request.form['expertise']
+        target = request.form['target']
+        training_type = request.form['training_type']
         experience = request.form['experience']
-
+    
 
         try:
             login_session['user'] = auth.create_user_with_email_and_password(email, password)
-            user = {"email": email, "password": password, "full_name": full_name, "phonenumber": phonenumber,
-             "sex": sex, "city": city, "specialty_in_training": specialty_in_training, "specialty_in_nutrition": specialty_in_nutrition,
-             "expertise": expertise, "experience": experience}
+            user = {
+                "email": email, "password": password, "full_name": name, "phone_number": phone_number,
+                "sex": sex, "city": city, "target": target, "training_type": training_type,
+                "experience": experience
+                }
             db.child("Users").child(login_session['user']['localId']).set(user)
             return redirect(url_for('for_you_trainer'))
         except:
@@ -59,29 +59,31 @@ def signup_trainer():
 
 @app.route('/signup_trainee', methods=['GET', 'POST'])
 def signup_trainee():
+
     if request.method == 'POST':
         email = request.form['email']
         password = request.form['password']
-        full_name = request.form['full_name']
-        phonenumber = request.form['phonenumber']
+        name = request.form['full_name']
+        phone_number = request.form['phone_number']
         sex = request.form['sex']
         city = request.form['city']
         target = request.form['target']
         training_type = request.form['training_type']
-        nutrition_type = request.form['nutrition_type']
-        nutrition_problems = request.form['nutrition_problems']
         experience = request.form['experience']
 
 
         try:
             login_session['user'] = auth.create_user_with_email_and_password(email, password)
-            user = {"email": email, "password": password, "full_name": full_name, "phonenumber": phonenumber,
-             "sex": sex, "city": city, "target": target, "training_type": training_type,
-             "nutrition_type": nutrition_type, "nutrition_problems": nutrition_problems, "experience": experience}
+            user = {
+                "email": email, "password": password, "full_name": name, "phone_number": phone_number,
+                "sex": sex, "city": city, "target": target, "training_type": training_type,
+                "experience": experience
+                }
+
             db.child("Users").child(login_session['user']['localId']).set(user)
             return redirect(url_for('for_you_trainee'))
         except:
-           error = "Authentication failed!"
+           error = "Authentication failed"
            print(error)
     return render_template('signup_trainee.html')
     
@@ -91,7 +93,6 @@ def for_you_trainer():
     
 @app.route('/for_you_trainee', methods=['GET', 'POST'])
 def for_you_trainee():
-    login_session['user'] = auth.create_user_with_email_and_password(email, password)
     return render_template('for_you_trainee.html')
 
 
