@@ -25,7 +25,7 @@ TRAINING_TYPES = ['Bodybuilding', 'Fitness', 'Yoga', 'Job Training', 'Other']
 
 @app.route('/', methods=['GET', 'POST'])
 def start():
-    return render_template('index.html')
+    return render_template('about.html')
 
 
 @app.route('/select_signup', methods=['GET', 'POST'])
@@ -43,17 +43,18 @@ def signup_trainer():
         phone_number = request.form['phone_number']
         sex = request.form.get('sex')
         city = request.form['city']
+        country = request.form['country']
         target = request.form['target'] 
         training_type = request.form.get('training_type')
-        experience = request.form['experience']
+        education = request.form['education']
     
 
         try:
             login_session['user'] = auth.create_user_with_email_and_password(email, password)
             user = {
                 "email": email, "password": password, "name": name, "phone_number": phone_number,
-                "sex": sex, "city": city, "target": target, "training_type": training_type,
-                "experience": experience
+                "sex": sex, "city": city, "country":country, "target": target, "training_type": training_type,
+                "education": education
                 }
             db.child("Users").child("Trainers").child(login_session['user']['localId']).set(user)
             return redirect(url_for('for_you_trainer'))
