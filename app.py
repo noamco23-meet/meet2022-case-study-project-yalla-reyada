@@ -21,7 +21,23 @@ auth = firebase.auth()
 db = firebase.database()
 
 @app.route('/')
-
+def start():
+    return render_template('index.html')
+@app.route('/select_signup')
+def select_signup():
+    return render_template('select_signup.html')
+@app.route('/signup_trainer')
+def signup_trainer():
+    return render_template('signup_trainer.html')
+@app.route('/signup_trainee')
+def signup_trainee():
+    return render_template('signup_trainee.html')
+@app.route('/for_you_trainer')
+def for_you_trainer():
+    return render_template('for_you_trainer.html')
+@app.route('/for_you_trainee')
+def for_you_trainee():
+    return render_template('for_you_trainee.html')
 
 
 if __name__ == '__main__':
