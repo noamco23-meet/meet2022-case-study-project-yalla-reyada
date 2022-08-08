@@ -12,7 +12,7 @@ config = {
   "storageBucket": "case-study-yalla-reyada.appspot.com",
   "messagingSenderId": "395694763700",
   "appId": "1:395694763700:web:5219bacf7b4b0fe5adf1e1",
-  "measurementId": "G-J6PGT8PB2D"
+  "measurementId": "G-J6PGT8PB2D",
   "databaseURL":"https://case-study-yalla-reyada-default-rtdb.europe-west1.firebasedatabase.app/"
 }
 
@@ -20,22 +20,28 @@ firebase = pyrebase.initialize_app(config)
 auth = firebase.auth()
 db = firebase.database()
 
-@app.route('/')
+@app.route('/', methods=['GET', 'POST'])
 def start():
     return render_template('index.html')
-@app.route('/select_signup')
+
+
+@app.route('/select_signup', methods=['GET', 'POST'])
 def select_signup():
     return render_template('select_signup.html')
-@app.route('/signup_trainer')
+
+@app.route('/signup_trainer', methods=['GET', 'POST'])
 def signup_trainer():
     return render_template('signup_trainer.html')
-@app.route('/signup_trainee')
+
+@app.route('/signup_trainee', methods=['GET', 'POST'])
 def signup_trainee():
     return render_template('signup_trainee.html')
-@app.route('/for_you_trainer')
+    
+@app.route('/for_you_trainer', methods=['GET', 'POST'])
 def for_you_trainer():
     return render_template('for_you_trainer.html')
-@app.route('/for_you_trainee')
+    
+@app.route('/for_you_trainee', methods=['GET', 'POST'])
 def for_you_trainee():
     return render_template('for_you_trainee.html')
 
