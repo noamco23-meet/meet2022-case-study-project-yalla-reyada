@@ -6,14 +6,14 @@ app = Flask(__name__, template_folder='templates', static_folder='static')
 app.config['SECRET_KEY'] = 'super-secret-key'
 
 config = {
-  "apiKey": "AIzaSyAb9fdK1LcLldQeTw7xaa0ojviPRX4aYXk",
-  "authDomain": "mini-project-summer-y2.firebaseapp.com",
-  "projectId": "mini-project-summer-y2",
-  "storageBucket": "mini-project-summer-y2.appspot.com",
-  "messagingSenderId": "859721328860",
-  "appId": "1:859721328860:web:fa77f49eaa61ce367bec19",
-  "measurementId": "G-71QX0TPLJE",
-  "databaseURL":"https://mini-project-summer-y2-default-rtdb.europe-west1.firebasedatabase.app/"
+  "apiKey": "AIzaSyDZAmDLLK4glPeEyzyX1B1HkW65RoidRHo",
+  "authDomain": "case-study-yalla-reyada.firebaseapp.com",
+  "projectId": "case-study-yalla-reyada",
+  "storageBucket": "case-study-yalla-reyada.appspot.com",
+  "messagingSenderId": "395694763700",
+  "appId": "1:395694763700:web:5219bacf7b4b0fe5adf1e1",
+  "measurementId": "G-J6PGT8PB2D"
+  "databaseURL":""
 }
 firebase = pyrebase.initialize_app(config)
 auth = firebase.auth()
