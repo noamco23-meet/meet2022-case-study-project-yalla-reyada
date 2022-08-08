@@ -21,6 +21,7 @@ auth = firebase.auth()
 db = firebase.database()
 
 SEX = ['Male', 'Female']
+TRAINING_TYPES = ['Bodybuilding', 'Fitness', 'Yoga', 'Job Training', 'Other']
 
 @app.route('/', methods=['GET', 'POST'])
 def start():
@@ -61,7 +62,7 @@ def signup_trainer():
            print(error)
 
     else:
-        return render_template('signup_trainer.html', SEX=SEX)
+        return render_template('signup_trainer.html', SEX=SEX, TRAINING_TYPES=TRAINING_TYPES)
 
 @app.route('/signup_trainee', methods=['GET', 'POST'])
 def signup_trainee():

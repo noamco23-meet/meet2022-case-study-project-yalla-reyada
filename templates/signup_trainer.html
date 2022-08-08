@@ -47,14 +47,14 @@
             <div class="select_field">
                 <select name="sex">
                     {% for sex_option in SEX %}
-                    <option value="{{sex_option}" class="select_option">{{sex_option}}</option>
+                    <option value="{{sex_option}}" class="select_option">{{sex_option}}</option>
                     {% endfor %}
                 </select>
             </div>
             <div class="select_field">
                 <select name="training_type">
-                    {% for group in GROUPS %}
-                    <option value="{{group}}" class="select_option">{{group}}</option>
+                    {% for training_option in TRAINING_TYPES %}
+                    <option value="{{training_option}}" class="select_option">{{training_option}}</option>
                     {% endfor %}
                 </select>
             </div>
