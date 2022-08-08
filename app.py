@@ -59,7 +59,6 @@ def signup_trainer():
 
 @app.route('/signup_trainee', methods=['GET', 'POST'])
 def signup_trainee():
-        error  =""
     if request.method == 'POST':
         email = request.form['email']
         password = request.form['password']
@@ -97,4 +96,4 @@ def for_you_trainee():
 
 
 if __name__ == '__main__':
-    app.run(debug=True)1
+    app.run(debug=True)
