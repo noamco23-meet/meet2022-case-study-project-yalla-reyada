@@ -82,7 +82,7 @@ def signup_trainee():
             db.child("Users").child(login_session['user']['localId']).set(user)
             return redirect(url_for('for_you_trainee'))
         except:
-           error = "Authentication failed"
+           error = "Authentication failed!"
            print(error)
     return render_template('signup_trainee.html')
     
