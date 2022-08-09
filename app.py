@@ -24,7 +24,7 @@ SEX = ['Male', 'Female']
 TRAINING_TYPES = ['Bodybuilding', 'Fitness', 'Yoga', 'Job Training', 'Other']
 
 def find_opposite_user(user_type):
-    if user_type == "Trainers":
+    if user_type == "Trainers":     
         return "Trainees"
     return "Trainers"
 
