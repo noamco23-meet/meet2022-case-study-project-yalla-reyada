@@ -26,10 +26,10 @@
     </div>
 
     <div class="center">
-        {% for id, user in suggested_users %}
-            <h1>{{user['name']}}</h1>
+        {% for localId in suggested_users %}
+            <h1>{{suggested_users[localId]['name']}}</h1>
         {% endfor %}
     </div>
-    
+   <!--Show more info and make sure that the users are for specific training type--> 
 </body>
 </html>
