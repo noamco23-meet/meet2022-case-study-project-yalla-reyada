@@ -23,11 +23,16 @@
 
     <div class="center">
         <h1>Sign up</h1>
-        <form action="/signup" method="POST">
+        <form action="/signup_trainer" method="POST">
             <div class="txt_field">
                 <input type="text" name="name" required>
                <span></span>
                 <label>Full Name</label>
+            </div>
+            <div class="txt_field">
+                <input type="number" name="age" required>
+               <span></span>
+                <label>Age</label>
             </div>
             <div class="txt_field">
                 <input type="email" name="email" required>
@@ -59,9 +64,19 @@
                 </select>
             </div>
             <div class="txt_field">
-                <input type="text" name="education" required>
+                <input type="text" name="expertise_training" required>
                <span></span>
-                <label>Education</label>
+                <label>Training Expertise</label>
+            </div>
+            <div class="txt_field">
+                <input type="text" name="expertise_nutrition" required>
+               <span></span>
+                <label>Nutrition Expertise</label>
+            </div>
+            <div class="txt_field">
+                <input type="text" name="experience" required>
+               <span></span>
+                <label>Experience</label>
             </div>
             <div class="txt_field">
                 <input type="text" name="city" required>
