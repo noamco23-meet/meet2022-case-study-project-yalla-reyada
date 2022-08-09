@@ -23,9 +23,14 @@ db = firebase.database()
 SEX = ['Male', 'Female']
 TRAINING_TYPES = ['Bodybuilding', 'Fitness', 'Yoga', 'Job Training', 'Other']
 
-@app.route('/', methods=['GET', 'POST'])
+@app.route('/index', methods=['GET', 'POST'])
 def start():
+    return render_template('index.html')
+
+@app.route('/about', methods=['GET', 'POST'])
+def about():
     return render_template('about.html')
+
 
 
 @app.route('/select_signup', methods=['GET', 'POST'])
