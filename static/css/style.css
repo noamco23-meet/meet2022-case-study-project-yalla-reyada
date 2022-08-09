@@ -67,6 +67,7 @@ a:hover,
 .portfolio-cat a:hover,
 .footer -menu li a:hover {
   text-decoration: none;
+
 }
 
 /* line 35, ../../Arafath/CL/Cl November/227. Health _ Fitness/HTML/scss/theme-default.scss */
@@ -2091,7 +2092,7 @@ h3 {
 /* line 3, ../../Arafath/CL/Cl November/227. Health _ Fitness/HTML/scss/_gallery.scss */
 .gallery_area .single_gallery {
   position: relative;
-  height: 330px;
+  height: 300px;
   float: left;
   overflow: hidden;
 }
@@ -2238,22 +2239,9 @@ h3 {
 }
 
 /* line 96, ../../Arafath/CL/Cl November/227. Health _ Fitness/HTML/scss/_gallery.scss */
-.gallery_area .single_gallery:hover .hover_pop:before {
-  opacity: .4;
-  -webkit-transform: scale(1);
-  -moz-transform: scale(1);
-  -ms-transform: scale(1);
-  transform: scale(1);
-}
 
 /* line 100, ../../Arafath/CL/Cl November/227. Health _ Fitness/HTML/scss/_gallery.scss */
-.gallery_area .single_gallery:hover .hover_pop a {
-  -webkit-transform: scale(1);
-  -moz-transform: scale(1);
-  -ms-transform: scale(1);
-  transform: scale(1);
-  opacity: 1;
-}
+.
 
 /* line 108, ../../Arafath/CL/Cl November/227. Health _ Fitness/HTML/scss/_gallery.scss */
 .view_pore.boxed-btn3 {
@@ -2662,17 +2650,9 @@ h3 {
 }
 
 /* line 40, ../../Arafath/CL/Cl November/227. Health _ Fitness/HTML/scss/_team.scss */
-.team_area .single_team .team_thumb .team_hover .hover_inner {
-  position: absolute;
-  top: 50%;
-  -webkit-transform: translateY(-50%);
-  -moz-transform: translateY(-50%);
-  -ms-transform: translateY(-50%);
-  transform: translateY(-50%);
-  left: 0;
-  right: 0;
-  margin: auto;
-}
+
+
+
 
 /* line 48, ../../Arafath/CL/Cl November/227. Health _ Fitness/HTML/scss/_team.scss */
 .team_area .single_team .team_thumb .team_hover .hover_inner ul li {
@@ -3025,6 +3005,7 @@ h3 {
   /* line 16, ../../Arafath/CL/Cl November/227. Health _ Fitness/HTML/scss/_footer.scss */
   .footer .footer_top .footer_widget {
     margin-bottom: 30px;
+    
   }
 }
 
