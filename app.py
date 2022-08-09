@@ -28,8 +28,12 @@ def start():
     return render_template('about.html')
 
 
+@app.route('/index', methods=['GET', 'POST'])
+def index():
+    return render_template('index.html')
+
 @app.route('/select_signup', methods=['GET', 'POST'])
-def select_signup():
+def signup():
     return render_template('select_signup.html')
 
 @app.route('/signup_trainer', methods=['GET', 'POST'])
