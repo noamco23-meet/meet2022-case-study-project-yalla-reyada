@@ -23,9 +23,15 @@ db = firebase.database()
 SEX = ['Male', 'Female']
 TRAINING_TYPES = ['Bodybuilding', 'Fitness', 'Yoga', 'Job Training', 'Other']
 
+def find_opposite_user(user_type):
+    if user_type == "Trainers":
+        return "Trainees"
+    return "Trainers"
+
+
 @app.route('/', methods=['GET', 'POST'])
 def start():
-    return render_template('about.html')
+    return render_template('index.html')
 
 
 @app.route('/select_signup', methods=['GET', 'POST'])
@@ -53,17 +59,17 @@ def signup_trainer():
 
         try:
             login_session['user'] = auth.create_user_with_email_and_password(email, password)
-            login_session['user']['type'] = "Trainer"
+            login_session['user']['type'] = "Trainers"
             user = {
-                "email": email, "age":age, "password": password, "name": name, "phone_number": phone_number,
-                "sex": sex, "city": city, "country":country, "training_type": training_type,
+                "email": email, "age":age, "password": password, "name": name, "phone_number":phone_number,
+                "sex": sex, "city": city, "country": country, "training_type": training_type,
                 "expertise_training": expertise_training, "expertise_nutrition": expertise_nutrition, "experience":experience
                 }
             db.child("Users").child("Trainers").child(login_session['user']['localId']).set(user)
             return redirect(url_for('foryou'))
         except:
-           error = "Authentication failed"
-           print(error)
+            error = "Authentication failed"
+            print(error)
     return render_template('signup_trainer.html', SEX=SEX, TRAINING_TYPES=TRAINING_TYPES)
 
 @app.route('/signup_trainee', methods=['GET', 'POST'])
@@ -84,7 +90,7 @@ def signup_trainee():
 
         try:
             login_session['user'] = auth.create_user_with_email_and_password(email, password)
-            login_session['user']['type'] = "Trainee"
+            login_session['user']['type'] = "Trainees"
             user = {
                 "email": email, "password": password, "name": name, "phone_number": phone_number,
                 "sex": sex, "city": city, "target": target, "training_type": training_type,
@@ -109,7 +115,12 @@ def for_you_trainee():
 
 @app.route('/foryou', methods=['GET', 'POST'])
 def foryou():
-    return render_template("foryou.html", user_type = login_session['user']['type'], training_type = db.child(login_session['user']['type']).child(login_session['user']['localId']).get().val()['training_type'])
+    user_type = login_session['user']['type']
+    print(user_type)
+    training_type = db.child("Users").child(user_type).child(login_session['user']['localId']).get().val()['training_type']
+    suggested_users = db.child("Users").child(find_opposite_user(user_type)).get().val()
+    print(suggested_users)
+    return render_template("foryou.html", user_type=user_type, training_type=training_type, suggested_users=suggested_users)
 
 if __name__ == '__main__':
     app.run(debug=True)
