@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="../static/css/signup.css">
+    <link rel="stylesheet" href="../static/css/foryou.css">
     <title>For You</title>
 </head>
 <body>
@@ -27,9 +27,19 @@
 
     <div class="center">
         {% for localId in suggested_users %}
-            <h1>{{suggested_users[localId]['name']}}</h1>
+            {% if suggested_users[localId]['training_type'] == training_type %}
+                <div class="profile">
+                    <img src="#" alt="Profile Image" class="profile__image">
+                    <div class="profile__name">{{suggested_users[localId]['name']}}, {{suggested_users[localId]['age']}}</div>
+                    <div class="profile__title">{{suggested_users[localId]['expertise_training']}}, {{suggested_users[localId]['expertise_nutrition']}}</div>
+                    <div class="profile__Detail">{{suggested_users[localId]['experience']}} of experience</div>
+                    <div class="profile__Detail">{{suggested_users[localId]['email']}}</div>
+                </div>
+            {% endif %}
         {% endfor %}
     </div>
+
+
    <!--Show more info and make sure that the users are for specific training type--> 
 </body>
 </html>
