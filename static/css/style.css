@@ -4189,6 +4189,9 @@ h6 {
   height: 100%;
   opacity: 0;
 }
+#logo214{
+  right: 50%;
+}
 
 /* line 655, ../../Arafath/CL/Cl November/227. Health _ Fitness/HTML/scss/_elements.scss */
 .primary-switch input + label {
@@ -6406,4 +6409,7 @@ h6 {
   font-size: 12px;
 }
 
+
 /*# sourceMappingURL=style.css.map */
+
+
