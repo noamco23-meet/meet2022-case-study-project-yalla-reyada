@@ -1453,16 +1453,13 @@ h3 {
 
 /* line 1, ../../Arafath/CL/Cl November/227. Health _ Fitness/HTML/scss/_slider.scss */
 .slider_bg_1 {
-<<<<<<< HEAD
-  background-image: url(static/img/banner/2.jpg);
-=======
   background-image: url(../img/banner/2.jpg);
->>>>>>> 47f501c751c568bfa3f2ac05e1b8be3a73bbd5d7
+
 }
 
 /* line 4, ../../Arafath/CL/Cl November/227. Health _ Fitness/HTML/scss/_slider.scss */
 .slider_bg_2 {
-  background-image: url(../img/banner/banner2.png);
+  background-image: url(static/img/banner/banner2.png);
 }
 
 /* line 7, ../../Arafath/CL/Cl November/227. Health _ Fitness/HTML/scss/_slider.scss */
