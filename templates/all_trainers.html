@@ -62,38 +62,30 @@
     </header>
 
     <div class="content">
-        {% if user_type == "Trainees" %}
-            <h1>Trainers for you!</h1>
-        {% else %}
-            <h1> Trainees for you!</h1>
-        {% endif %}
-        <h2>Hey, {{username}}. These people suit your need for {{training_type}}</h2>
-
-
+        <br>
+        <br>
+        <br>
+        <br>
     <div class="center">
         <div class="container">
         <div class="row">
-        {% for localId in suggested_users %}
-            {% if suggested_users[localId]['training_type'] == training_type %}
+        {% for localId in users %}
                     <div class="col-6">
                         <div class="card mb-5 shadow-sm">              
                             <div class="card-body">
                                 <div class="card-title">
-                                    <h2>{{suggested_users[localId]['name']}}, {{suggested_users[localId]['age']}} years old</h2>
+                                    <h2>{{users[localId]['name']}}, {{users[localId]['age']}} years old</h2>
                                 </div>
                                 <div class="card-text">
-                                    {% if user_type == "Trainees" %}
-                                        <h5>{{suggested_users[localId]['expertise_training']}}, {{suggested_users[localId]['expertise_nutrition']}}</h5>
-                                    {% endif %}
-                                        <p>{{suggested_users[localId]['experience']}} years of experience.</p>
+                                        <h5>{{users[localId]['expertise_training']}}, {{users[localId]['expertise_nutrition']}}</h5>
+                                        <p>{{users[localId]['experience']}} years of experience in {{users[localId]['training_type']}}</p>
                                 </div>
-                                <a href="#" class="btn btn-outline-primary rounded-0 float-end">{{suggested_users[localId]['email']}}, {{suggested_users[localId]['phone_number']}}</a>
+                                <a href="#" class="btn btn-outline-primary rounded-0 float-end">{{users[localId]['email']}}, {{users[localId]['phone_number']}}</a>
                             </div>
                         </div>
                     </div>
-            {% endif %}
         {% endfor %}
-                </div>
+            </div>
     </div>
     </div>
 </div>

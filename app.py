@@ -34,9 +34,9 @@ def start():
     return render_template('index.html')
 
 
-@app.route('/select_signup', methods=['GET', 'POST'])
+@app.route('/all_trainers')
 def select_signup():
-    return render_template('select_signup.html')
+    return render_template('all_trainers.html', users = db.child("Users").child("Trainers").get().val())
 
 @app.route('/signup_trainer', methods=['GET', 'POST'])
 def signup_trainer():
@@ -105,15 +105,6 @@ def signup_trainee():
            print(error)
     return render_template('signup_trainee.html', SEX=SEX, TRAINING_TYPES=TRAINING_TYPES)
     
-@app.route('/for_you_trainer', methods=['GET', 'POST'])
-def for_you_trainer():
-    return render_template("for_you_trainer.html")
-    
-@app.route('/for_you_trainee', methods=['GET', 'POST'])
-def for_you_trainee():
-    return render_template('for_you_trainee.html')
-
-
 @app.route('/foryou', methods=['GET', 'POST'])
 def foryou():
     user_type = login_session['user']['type']
@@ -121,7 +112,7 @@ def foryou():
     training_type = db.child("Users").child(user_type).child(login_session['user']['localId']).get().val()['training_type']
     suggested_users = db.child("Users").child(find_opposite_user(user_type)).get().val()
     print(suggested_users)
-    return render_template("foryou.html", user_type=user_type, training_type=training_type, suggested_users=suggested_users)
+    return render_template("foryou.html", user_type=user_type, training_type=training_type, suggested_users=suggested_users, username = db.child("Users").child(user_type).get().val()['name'])
 
 if __name__ == '__main__':
     app.run(debug=True)
