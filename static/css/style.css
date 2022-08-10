@@ -31,6 +31,10 @@ body {
   font-style: normal;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 /* line 13, ../../Arafath/CL/Cl November/227. Health _ Fitness/HTML/scss/theme-default.scss */
 .img {
   max-width: 100%;
@@ -906,6 +910,7 @@ h3 {
   left: 0;
   right: 0;
   width: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
   top: 0;
   z-index: 9;
   position: absolute;
@@ -2307,7 +2312,7 @@ h3 {
 
 /* line 29, ../../Arafath/CL/Cl November/227. Health _ Fitness/HTML/scss/_catagory.scss */
 .catagory_area .single_catagory p {
-  font-size: 16px;
+  font-size: 20px;
   line-height: 28px;
   color: #fff;
   margin: 16px 0 24px 0;

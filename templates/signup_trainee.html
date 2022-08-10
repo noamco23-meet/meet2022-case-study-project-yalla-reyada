@@ -3,39 +3,83 @@
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="../static/css/signup.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/owl.carousel.min.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/magnific-popup.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/font-awesome.min.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/themify-icons.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/gijgo.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/nice-select.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/flaticon.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/slicknav.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
     <title></title>
 </head>
 <body>
-    <div class="banner">
-        <div class="navbar">
-            <img src="../static/media/logo.png" class="logo">
-            <ul>
-                <li><a href="#">Sign up to access all of our features!</a></li>
-            </ul>
+    <header>
+        <div class="header-area ">
+            <div id="sticky-header" class="main-header-area">
+                <div class="container-fluid ">
+                    <div class="header_bottom_border">
+                        <div class="row align-items-center">
+                            <div class="col-xl-3 col-lg-2">
+                                <div class="logo">
+                                    <a href="/">
+                                        <img src="static/img/logo212.webp" alt="">
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="col-xl-6 col-lg-7">
+                                <div class="main-menu  d-none d-lg-block">
+                                    <nav>
+                                        <ul id="navigation">
+                                            <li><a href="/" id="home1">home</a></li>
+                                           <!--add route @index.html-->
+                                                  
+                                        </ul>
+                                    </nav>
+                                </div>
+                            </div>
+                            <div class="col-xl-3 col-lg-3 d-none d-lg-block">
+                                <div class="Appointment">
+                                    <div class="book_btn d-none d-lg-block">
+                                        <a href="#catagory_area">Join Us!</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="mobile_menu d-block d-lg-none"></div>
+                            </div>
+                        </div>
+                    </div>
 
+                </div>
+            </div>
         </div>
-    </div>
+    </header>
 
-    <div class="content">
-        <h1>Thank you for choosing Yalla Reyada!</h1>
-        <h2>Enter your information below:</h2>
-    </div>
 
     <div class="center">
         <h1>Sign up</h1>
         <form action="/signup_trainee" method="POST">
             <div class="txt_field">
-                <input type="text" name="name" required>
+                <input type="text" name="name" id="name" required>
                <span></span>
                 <label>Full Name</label>
             </div>
             <div class="txt_field">
-                <input type="number" name="age" required>
+                <input type="number" name="age" id="age" required>
                <span></span>
                 <label>Age</label>
             </div>
             <div class="txt_field">
-                <input type="email" name="email" required>
+                <input type="tel" name="phone_number" required>
+                <span></span>
+                <label>Phone Number</label>
+            </div>
+            <br>
+            <div class="txt_field">
+                <input type="email" name="email" id="email" required>
                <span></span>
                 <label>Email</label>
             </div>
@@ -44,29 +88,30 @@
                 <span></span>
                 <label>Password</label>
             </div>
-            <div class="txt_field">
-                <input type="tel" name="phone_number" required>
-                <span></span>
-                <label>Phone Number</label>
-            </div>
+            <br>
             <div class="select_field">
+                <label class="custom-selector">Your Sex:
                 <select name="sex">
                     {% for sex_option in SEX %}
                     <option value="{{sex_option}}" class="select_option">{{sex_option}}</option>
                     {% endfor %}
                 </select>
+                </label>
             </div>
             <div class="select_field">
+                <label class="custom-selector">Your training type:
                 <select name="training_type">
                     {% for training_option in TRAINING_TYPES %}
                     <option value="{{training_option}}" class="select_option">{{training_option}}</option>
                     {% endfor %}
                 </select>
+                </label>
             </div>
+            <br>
             <div class="txt_field">
                 <input type="text" name="experience" required>
                <span></span>
-                <label>Experience</label>
+                <label>Years training</label>
             </div>
             <div class="txt_field">
                 <input type="text" name="city" required>
@@ -81,6 +126,6 @@
             <input type="submit" value="Sign up!">
         </form>
     </div>
-    
+
 </body>
 </html>

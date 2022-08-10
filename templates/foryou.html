@@ -2,42 +2,111 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="../static/css/foryou.css">
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/owl.carousel.min.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/magnific-popup.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/font-awesome.min.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/themify-icons.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/gijgo.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/nice-select.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/flaticon.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/slicknav.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/foryou.css') }}">
+    <link rel="stylesheet" href="../static/css/bootstrap.min.css" />
     <title>For You</title>
 </head>
 <body>
-    <div class="banner">
-        <div class="navbar">
-            <img src="../static/media/logo.png" class="logo">
-            <ul>
-                <li><a href="#">Sign up to access all of our features!</a></li>
-            </ul>
+    
+    <header>
+        <div class="header-area ">
+            <div id="sticky-header" class="main-header-area">
+                <div class="container-fluid ">
+                    <div class="header_bottom_border">
+                        <div class="row align-items-center">
+                            <div class="col-xl-3 col-lg-2">
+                                <div class="logo">
+                                    <a href="/">
+                                        <img src="static/img/logo212.webp" alt="">
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="col-xl-6 col-lg-7">
+                                <div class="main-menu  d-none d-lg-block">
+                                    <nav>
+                                        <ul id="navigation">
+                                            <li><a href="/" id="home1">home</a></li>
+                                           <!--add route @index.html-->
+                                                  
+                                        </ul>
+                                    </nav>
+                                </div>
+                            </div>
+                            <div class="col-xl-3 col-lg-3 d-none d-lg-block">
+                                <div class="Appointment">
+                                    <div class="book_btn d-none d-lg-block">
+                                        <a href="/">Join Us!</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="mobile_menu d-block d-lg-none"></div>
+                            </div>
+                        </div>
+                    </div>
 
+                </div>
+            </div>
         </div>
-    </div>
+    </header>
 
     <div class="content">
-        {% if user_type == "Trainee" %}
+        {% if user_type == "Trainees" %}
             <h1>Trainers for you!</h1>
         {% else %}
             <h1> Trainees for you!</h1>
         {% endif %}
         <h2>These people suit your need for {{training_type}}</h2>
-    </div>
+
 
     <div class="center">
+        <div class="container">
+        <div class="row">
         {% for localId in suggested_users %}
             {% if suggested_users[localId]['training_type'] == training_type %}
-                <div class="profile">
+                <!--<div class="profile">
                     <img src="#" alt="Profile Image" class="profile__image">
                     <div class="profile__name">{{suggested_users[localId]['name']}}, {{suggested_users[localId]['age']}}</div>
                     <div class="profile__title">{{suggested_users[localId]['expertise_training']}}, {{suggested_users[localId]['expertise_nutrition']}}</div>
                     <div class="profile__Detail">{{suggested_users[localId]['experience']}} of experience</div>
                     <div class="profile__Detail">{{suggested_users[localId]['email']}}</div>
-                </div>
+                </div>-->
+                    <div class="col-6">
+                        <div class="card mb-5 shadow-sm">              
+                            <div class="card-body">
+                                <div class="card-title">
+                                    <h2>{{suggested_users[localId]['name']}}, {{suggested_users[localId]['age']}} years old</h2>
+                                </div>
+                                <div class="card-text">
+                                    {% if user_type == "Trainees" %}
+                                        <h5>{{suggested_users[localId]['expertise_training']}}, {{suggested_users[localId]['expertise_nutrition']}}</h5>
+                                    {% endif %}
+                                        <p>{{suggested_users[localId]['experience']}} years of experience.</p>
+                                </div>
+                                <a href="#" class="btn btn-outline-primary rounded-0 float-end">{{suggested_users[localId]['email']}}, {{suggested_users[localId]['phone_number']}}</a>
+                            </div>
+                        </div>
+                    </div>
             {% endif %}
         {% endfor %}
+                </div>
     </div>
+    </div>
+</div>
+
+    
+
 
 
    <!--Show more info and make sure that the users are for specific training type--> 
