@@ -67,7 +67,7 @@
         {% else %}
             <h1> Trainees for you!</h1>
         {% endif %}
-        <h2>Hey, {{username}}. These people suit your need for {{training_type}}</h2>
+        <h2>These people suit your need for {{training_type}}</h2>
 
 
     <div class="center">
@@ -87,7 +87,7 @@
                                     {% endif %}
                                         <p>{{suggested_users[localId]['experience']}} years of experience.</p>
                                 </div>
-                                <a href="#" class="btn btn-outline-primary rounded-0 float-end">{{suggested_users[localId]['email']}}, {{suggested_users[localId]['phone_number']}}</a>
+                                <a href="#" class="btn btn-outline-danger rounded-0 float-end">{{suggested_users[localId]['email']}}, {{suggested_users[localId]['phone_number']}}</a>
                             </div>
                         </div>
                     </div>

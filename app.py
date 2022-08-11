@@ -108,11 +108,10 @@ def signup_trainee():
 @app.route('/foryou', methods=['GET', 'POST'])
 def foryou():
     user_type = login_session['user']['type']
-    print(user_type)
+
     training_type = db.child("Users").child(user_type).child(login_session['user']['localId']).get().val()['training_type']
     suggested_users = db.child("Users").child(find_opposite_user(user_type)).get().val()
-    print(suggested_users)
-    return render_template("foryou.html", user_type=user_type, training_type=training_type, suggested_users=suggested_users, username = db.child("Users").child(user_type).get().val()['name'])
+    return render_template("foryou.html", user_type=user_type, training_type=training_type, suggested_users=suggested_users)
 
 if __name__ == '__main__':
     app.run(debug=True)
